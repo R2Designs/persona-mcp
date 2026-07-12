@@ -139,9 +139,9 @@ Then add this to Claude Desktop config:
     "persona": {
       "command": "node",
       "args": [
-        "/absolute/path/to/persona-mcp/dist/server.js",
+        "$HOME/path/to/persona-mcp/dist/server.js",
         "--spec-dir",
-        "/absolute/path/to/persona-mcp/persona-spec"
+        "$HOME/path/to/persona-mcp/persona-spec"
       ]
     }
   }
@@ -172,7 +172,7 @@ corepack pnpm build
 Make Persona available globally in Claude Code:
 
 ```bash
-claude mcp add --scope user persona -- node /absolute/path/to/persona-mcp/dist/server.js --spec-dir /absolute/path/to/persona-mcp/persona-spec
+claude mcp add --scope user persona -- node "$(pwd)/dist/server.js" --spec-dir "$(pwd)/persona-spec"
 ```
 
 Verify:
@@ -194,7 +194,7 @@ List available Persona design personalities.
 Persona is not Claude-specific. It is a standard stdio MCP server, so any Codex environment that supports MCP servers can launch the same command:
 
 ```bash
-node /absolute/path/to/persona-mcp/dist/server.js --spec-dir /absolute/path/to/persona-mcp/persona-spec
+node /path/to/persona-mcp/dist/server.js --spec-dir /path/to/persona-mcp/persona-spec
 ```
 
 Add that command to your Codex MCP server configuration as a stdio server named `persona`.
@@ -207,9 +207,9 @@ Example conceptual config:
     "persona": {
       "command": "node",
       "args": [
-        "/absolute/path/to/persona-mcp/dist/server.js",
+        "/path/to/persona-mcp/dist/server.js",
         "--spec-dir",
-        "/absolute/path/to/persona-mcp/persona-spec"
+        "/path/to/persona-mcp/persona-spec"
       ]
     }
   }
