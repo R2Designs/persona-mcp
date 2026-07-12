@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "component": "table",
+    "personality": "cheerful"
+  },
+  "intent": {
+    "goal": "Friendly table"
+  },
+  "visual": {
+    "typographyToken": "body",
+    "spacingToken": "md",
+    "radiusToken": "button",
+    "elevationToken": "card"
+  },
+  "interaction": {
+    "durationToken": "motion.duration",
+    "hover": "fade"
+  },
+  "content": {
+    "tone": "Friendly",
+    "capitalization": "Sentence case"
+  },
+  "composition": {
+    "maxPrimaryActions": 1,
+    "preferredDensity": "medium"
+  },
+  "rules": [
+    "Follow cheerful personality.",
+    "Maintain consistent spacing.",
+    "Respect typography hierarchy."
+  ],
+  "antiPatterns": [
+    "Multiple competing CTAs",
+    "Inconsistent spacing",
+    "Overly decorative visuals"
+  ]
+}

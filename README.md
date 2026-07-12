@@ -2,18 +2,32 @@
 
 Persona is a Model Context Protocol server that exposes semantic design specifications to AI models.
 
-It does not export design tokens from Figma. It reads an already-exported `persona-spec` folder and lets Claude, Cursor, Codex, or any MCP client ask for design personalities, component recipes, screen recipes, token bundles, and principles.
+It ships with a public `persona-spec` knowledge base and lets Claude, Cursor, Codex, or any MCP client ask for design personalities, component recipes, screen recipes, token bundles, and principles.
 
-## Install
+## Quick Start
 
 ```bash
-pnpm install
-pnpm build
+git clone https://github.com/R2Designs/persona-mcp.git
+cd persona-mcp
+corepack pnpm install
+corepack pnpm build
 ```
 
-## Expected Spec Folder
+The bundled public design knowledge base lives at:
 
-By default the server reads `persona-spec` from the current working directory. You can also pass `--spec-dir` or set `PERSONA_SPEC_DIR`.
+```text
+persona-spec/
+```
+
+Run the MCP server manually:
+
+```bash
+node dist/server.js --spec-dir ./persona-spec
+```
+
+## Spec Folder
+
+By default the server reads `persona-spec` from the current working directory. You can also pass `--spec-dir` or set `PERSONA_SPEC_DIR` to use another local knowledge base.
 
 ```text
 persona-spec/
@@ -25,34 +39,36 @@ persona-spec/
     radius.json
     motion.json
     elevation.json
-    button.json
-    input.json
-    textarea.json
-    select.json
-    checkbox.json
-    radio.json
-    switch.json
-    card.json
-    modal.json
-    drawer.json
-    toast.json
-    alert.json
-    tooltip.json
-    badge.json
-    chip.json
-    avatar.json
-    tabs.json
-    breadcrumb.json
-    pagination.json
-    navbar.json
-    sidebar.json
-    table.json
-    list.json
-    dashboard.json
-    login.json
-    checkout.json
-    settings.json
-    empty-state.json
+    components/
+      button.json
+      input.json
+      textarea.json
+      select.json
+      checkbox.json
+      radio.json
+      switch.json
+      card.json
+      modal.json
+      drawer.json
+      toast.json
+      alert.json
+      tooltip.json
+      badge.json
+      chip.json
+      avatar.json
+      tabs.json
+      breadcrumb.json
+      pagination.json
+      navbar.json
+      sidebar.json
+      table.json
+      list.json
+    layouts/
+      dashboard.json
+      login.json
+      checkout.json
+      settings.json
+      empty-state.json
   serious/
   cheerful/
   fast/
@@ -109,8 +125,10 @@ Returns `principles.json` for the selected personality.
 Build the server first:
 
 ```bash
-cd /absolute/path/to/persona-mcp
-pnpm build
+git clone https://github.com/R2Designs/persona-mcp.git
+cd persona-mcp
+corepack pnpm install
+corepack pnpm build
 ```
 
 Then add this to Claude Desktop config:
@@ -123,7 +141,7 @@ Then add this to Claude Desktop config:
       "args": [
         "/absolute/path/to/persona-mcp/dist/server.js",
         "--spec-dir",
-        "/absolute/path/to/persona-spec"
+        "/absolute/path/to/persona-mcp/persona-spec"
       ]
     }
   }
@@ -142,16 +160,25 @@ Use Persona to list available design personalities.
 
 Claude Code can use the same local MCP server over stdio.
 
-From any project where you want Persona available:
+Clone and build:
 
 ```bash
-claude mcp add persona -- node /absolute/path/to/persona-mcp/dist/server.js --spec-dir "/absolute/path/to/persona-spec"
+git clone https://github.com/R2Designs/persona-mcp.git
+cd persona-mcp
+corepack pnpm install
+corepack pnpm build
 ```
 
-For this machine, the complete local design knowledge base is:
+Make Persona available globally in Claude Code:
 
 ```bash
-claude mcp add persona -- node /Users/raj/Documents/AI-projects/persona-mcp/dist/server.js --spec-dir "/Users/raj/Downloads/design sense/persona-spec-complete"
+claude mcp add --scope user persona -- node /absolute/path/to/persona-mcp/dist/server.js --spec-dir /absolute/path/to/persona-mcp/persona-spec
+```
+
+Verify:
+
+```bash
+claude mcp list
 ```
 
 Then open Claude Code and ask:
@@ -160,6 +187,33 @@ Then open Claude Code and ask:
 Use Persona to get the luxury button recipe.
 Use Persona to get the cheerful dashboard recipe.
 List available Persona design personalities.
+```
+
+## Codex
+
+Persona is not Claude-specific. It is a standard stdio MCP server, so any Codex environment that supports MCP servers can launch the same command:
+
+```bash
+node /absolute/path/to/persona-mcp/dist/server.js --spec-dir /absolute/path/to/persona-mcp/persona-spec
+```
+
+Add that command to your Codex MCP server configuration as a stdio server named `persona`.
+
+Example conceptual config:
+
+```json
+{
+  "mcpServers": {
+    "persona": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/persona-mcp/dist/server.js",
+        "--spec-dir",
+        "/absolute/path/to/persona-mcp/persona-spec"
+      ]
+    }
+  }
+}
 ```
 
 ## Architecture

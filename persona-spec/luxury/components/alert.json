@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "component": "alert",
+    "personality": "luxury"
+  },
+  "intent": {
+    "goal": "Premium alert"
+  },
+  "visual": {
+    "typographyToken": "body",
+    "spacingToken": "md",
+    "radiusToken": "button",
+    "elevationToken": "card"
+  },
+  "interaction": {
+    "durationToken": "motion.duration",
+    "hover": "fade"
+  },
+  "content": {
+    "tone": "Premium",
+    "capitalization": "Sentence case"
+  },
+  "composition": {
+    "maxPrimaryActions": 1,
+    "preferredDensity": "low"
+  },
+  "rules": [
+    "Follow luxury personality.",
+    "Maintain consistent spacing.",
+    "Respect typography hierarchy."
+  ],
+  "antiPatterns": [
+    "Multiple competing CTAs",
+    "Inconsistent spacing",
+    "Overly decorative visuals"
+  ]
+}

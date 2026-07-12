@@ -15,6 +15,7 @@
   },
   "files": [
     "dist",
+    "persona-spec",
     "README.md"
   ],
   "dependencies": {

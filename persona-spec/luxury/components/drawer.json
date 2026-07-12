@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "component": "drawer",
+    "personality": "luxury"
+  },
+  "intent": {
+    "goal": "Premium drawer"
+  },
+  "visual": {
+    "typographyToken": "body",
+    "spacingToken": "md",
+    "radiusToken": "card",
+    "elevationToken": "card"
+  },
+  "interaction": {
+    "durationToken": "motion.duration",
+    "hover": "fade"
+  },
+  "content": {
+    "tone": "Premium",
+    "capitalization": "Sentence case"
+  },
+  "composition": {
+    "maxPrimaryActions": 1,
+    "preferredDensity": "low"
+  },
+  "rules": [
+    "Follow luxury personality.",
+    "Maintain consistent spacing.",
+    "Respect typography hierarchy."
+  ],
+  "antiPatterns": [
+    "Multiple competing CTAs",
+    "Inconsistent spacing",
+    "Overly decorative visuals"
+  ]
+}

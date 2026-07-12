@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "component": "drawer",
+    "personality": "fast"
+  },
+  "intent": {
+    "goal": "Efficient drawer"
+  },
+  "visual": {
+    "typographyToken": "body",
+    "spacingToken": "md",
+    "radiusToken": "card",
+    "elevationToken": "card"
+  },
+  "interaction": {
+    "durationToken": "motion.duration",
+    "hover": "fade"
+  },
+  "content": {
+    "tone": "Efficient",
+    "capitalization": "Sentence case"
+  },
+  "composition": {
+    "maxPrimaryActions": 1,
+    "preferredDensity": "high"
+  },
+  "rules": [
+    "Follow fast personality.",
+    "Maintain consistent spacing.",
+    "Respect typography hierarchy."
+  ],
+  "antiPatterns": [
+    "Multiple competing CTAs",
+    "Inconsistent spacing",
+    "Overly decorative visuals"
+  ]
+}

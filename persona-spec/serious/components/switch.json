@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "component": "switch",
+    "personality": "serious"
+  },
+  "intent": {
+    "goal": "Professional switch"
+  },
+  "visual": {
+    "typographyToken": "body",
+    "spacingToken": "md",
+    "radiusToken": "button",
+    "elevationToken": "card"
+  },
+  "interaction": {
+    "durationToken": "motion.duration",
+    "hover": "fade"
+  },
+  "content": {
+    "tone": "Professional",
+    "capitalization": "Sentence case"
+  },
+  "composition": {
+    "maxPrimaryActions": 1,
+    "preferredDensity": "medium"
+  },
+  "rules": [
+    "Follow serious personality.",
+    "Maintain consistent spacing.",
+    "Respect typography hierarchy."
+  ],
+  "antiPatterns": [
+    "Multiple competing CTAs",
+    "Inconsistent spacing",
+    "Overly decorative visuals"
+  ]
+}

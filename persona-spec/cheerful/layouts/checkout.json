@@ -1,0 +1,10 @@
+{
+  "layout": "checkout",
+  "goal": "Friendly experience",
+  "density": "medium",
+  "rules": [
+    "One focal area",
+    "Clear hierarchy",
+    "Consistent spacing"
+  ]
+}

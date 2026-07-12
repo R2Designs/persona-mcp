@@ -1,0 +1,14 @@
+{
+  "heading": {
+    "font": "Cormorant Garamond",
+    "weight": 600
+  },
+  "body": {
+    "font": "Inter",
+    "weight": 400
+  },
+  "button": {
+    "font": "Inter",
+    "weight": 500
+  }
+}
