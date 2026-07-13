@@ -4,6 +4,8 @@ Persona is a Model Context Protocol server that exposes semantic design specific
 
 It ships with a public `persona-spec` knowledge base and lets Claude, Cursor, Codex, or any MCP client ask for design personalities, component recipes, screen recipes, token bundles, and principles.
 
+Learn more about the project, design story, and live demo at [r2designs.github.io/persona](https://r2designs.github.io/persona/).
+
 ## Quick Start
 
 ```bash
